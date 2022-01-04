@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class HomeController {
     @RequestMapping(value = "/index", method= RequestMethod.GET)
-    public String goHome(HttpServletRequest request) {
+
+    public String goHome(PamaAdminVO pamaAdminVO) {
+        pamaAdminVO.setAge(121);
+
+
         return "index";
     }
 }
