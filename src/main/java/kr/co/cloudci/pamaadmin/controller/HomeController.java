@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class HomeController {
-    @RequestMapping(value = "/index", method= RequestMethod.GET)
 
+    @RequestMapping(value = "/index", method= RequestMethod.GET)
     public String goHome(PamaAdminVO pamaAdminVO) {
         pamaAdminVO.setAge(121);
 
