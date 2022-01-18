@@ -2,7 +2,9 @@ package kr.co.cloudci.pamaadmin;
 
 
 
+import kr.co.cloudci.pama.minier.service.DevicesItem;
 import kr.co.cloudci.pama.minier.service.MainerService;
+import kr.co.cloudci.pama.minier.service.Response;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -17,16 +19,35 @@ import java.util.Map;
 
 public class PamaTest {
 
+    public String formatValue(int value, int defaultPrecision, String valueUnit) {
+        if (value >= 1000000000)
+            return ((value / 1000000000) + " G" + valueUnit);
+        else if (value >= 1000000)
+            return ((value / 1000000) + " M" + valueUnit);
+        else if (value >= 1000)
+            return ((value / 1000) + " K" + valueUnit);
+        else
+            return (value + " " + valueUnit);
+    }
+
     @Test
     public void test1() {
 
         MainerService mainerService = new MainerService();
 
 
-        Map<String, Object> result = mainerService.getStat("http://192.168.50.201:3333/stat");
-        for(String key : result.keySet()) {
-            System.out.println(key + " : " + result.get(key));
+        Response result = mainerService.getStat("http://220.126.107.155:33331/stat");
+
+
+        System.out.println(result.toString());
+
+
+        for(DevicesItem  devicesItem : result.getDevices() ) {
+
+            System.out.println(" Hash : " + devicesItem.getName()+ " "  + formatValue(devicesItem.getSpeed(), result.getSpeedRatePrecision(), result.getSpeedUnit()) );
         };
+
+
            //System.out.println(result.toString());
 
 //            try {
