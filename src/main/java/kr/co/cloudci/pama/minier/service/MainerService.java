@@ -33,6 +33,9 @@ public class MainerService {
         // REST API 호출
         ResponseEntity<Response> result = restTemplate.getForEntity(urlStr,  Response.class);
 
+//        System.out.println(" statusCode : " + result.getStatusCode());
+//        System.out.println(" header : " + result.getHeaders());
+
         return result.getBody();
     }
 }
