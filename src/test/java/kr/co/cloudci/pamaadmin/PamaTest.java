@@ -35,11 +35,12 @@ public class PamaTest {
 
         MainerService mainerService = new MainerService();
 
-        for (int i=1;i < 9;i++){
+        for (int i=1;i < 10;i++){
             Response result = mainerService.getStat("http://192.168.50.20"+i+":3333/stat");
             for(DevicesItem  devicesItem : result.getDevices() ) {
 
-                System.out.println(" Hash : " + devicesItem.getName()+ " "  + formatValue(devicesItem.getSpeed(), result.getSpeedRatePrecision(), result.getSpeedUnit()) );
+
+                System.out.println(" Hash : " + devicesItem.getName()+ " " +  devicesItem.getTemperature() + " " + formatValue(devicesItem.getSpeed(), result.getSpeedRatePrecision(), result.getSpeedUnit()) );
             };
 
         }

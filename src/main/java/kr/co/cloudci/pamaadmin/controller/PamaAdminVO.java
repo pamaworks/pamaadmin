@@ -8,4 +8,5 @@ import lombok.Setter;
 public class PamaAdminVO {
     String name;
     int age;
+    String printString;
 }
