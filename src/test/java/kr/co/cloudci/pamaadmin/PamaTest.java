@@ -36,7 +36,7 @@ public class PamaTest {
         MainerService mainerService = new MainerService();
 
         for (int i=1;i < 10;i++){
-            Response result = mainerService.getStat("http://192.168.50.20"+i+":3333/stat");
+            Response result = mainerService.getStat("http://220.126.107.155:3333"+i+"/stat");
             for(DevicesItem  devicesItem : result.getDevices() ) {
 
 
