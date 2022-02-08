@@ -60,6 +60,4 @@ public class Response {
 	@JsonProperty("algorithm")
 	private String algorithm;
 
-
-
 }
