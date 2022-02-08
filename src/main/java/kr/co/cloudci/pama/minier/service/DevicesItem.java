@@ -56,7 +56,22 @@ public class DevicesItem {
 	@JsonProperty("core_clock")
 	private int coreClock;
 
-	@JsonProperty("speedFmt")
-	private int speedFmt;
+
+	private String speedFmt;
+
+	public void updateSpeedFmt(int speedRatePrecision, String speedUnit){
+		this.speedFmt = formatValue(this.speed, speedRatePrecision, speedUnit);
+	}
+
+	public String formatValue(int value, int speedRatePrecision, String speedUnit) {
+		if (value >= 1000000000)
+			return ((value / 1000000000) + " G" + speedUnit);
+		else if (value >= 1000000)
+			return ((value / 1000000) + " M" + speedUnit);
+		else if (value >= 1000)
+			return ((value / 1000) + " K" + speedUnit);
+		else
+			return (value + " " + speedUnit);
+	}
 
 }

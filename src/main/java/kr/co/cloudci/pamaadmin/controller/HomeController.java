@@ -25,9 +25,11 @@ public class HomeController {
             minerVO = mainerService.getStat("http://220.126.107.155:3333"+i+"/stat");
 
            for(DevicesItem devicesItem : minerVO.getDevices() ) {
+
+               devicesItem.updateSpeedFmt(minerVO.getSpeedRatePrecision(), minerVO.getSpeedUnit());
                list.add(devicesItem);
 
-               System.out.println(devicesItem.getGpuId());
+
                //mainerService.formatValue(devicesItem.getSpeed(), minerVO.getSpeedRatePrecision(), minerVO.getSpeedUnit());
 
 //               printStr +=  " <br/> NO : [" + no + "] Name => : " + devicesItem.getName()+ " 온도 : "  +  devicesItem.getTemperature() + "C 해쉬 : " + mainerService.formatValue(devicesItem.getSpeed(), result.getSpeedRatePrecision(), result.getSpeedUnit()) ;
