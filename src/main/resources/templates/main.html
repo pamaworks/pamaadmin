@@ -45,53 +45,41 @@
                                         <th>Core</th>
                                         <th>Memory</th>
                                         <th>Power</th>
-                                        <th>Efficiency</th>
+                                       <!-- <th>Efficiency</th>-->
                                     </tr>
                                     </thead>
                                     <tbody>
 
-                                    <tr class="gradeA" th:each="response : ${responses}">
-                                        <td th:text="${response.server}">server</td>
-                                        <td>Internet  Explorer 6</td>
-                                        <td>Win 98+</td>
-                                        <td class="center">A</td>
-                                        <td class="center">A</td>
-                                        <td class="center">A</td>
-                                        <td class="center">A</td>
-                                        <td class="center">A</td>
-                                        <td class="center">A</td>
+                                    <tr class="gradeA" th:each="devicesItem : ${list}">
+                                        <td th:text="${devicesItem.gpuId}">server</td>
+                                        <td th:text="${devicesItem.name}">server</td>
+                                        <td th:text="${devicesItem.temperature}">server</td>
+                                        <td th:text="${devicesItem.fan}">server</td>
+                                        <td th:text="${devicesItem.speed}">speed</td>
+                                        <td th:text="${devicesItem.coreClock}">server</td>
+                                        <td th:text="${devicesItem.memoryClock}">server</td>
+                                        <td th:text="${devicesItem.powerUsage}">server</td>
+                                        <!--<td th:text="${devicesItem.busId}">server</td>-->
                                     </tr>
                                     </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>GPU</th>
-                                        <th>Fan</th>
-                                        <th>Temperature</th>
-                                        <th>Speed</th>
-                                        <th>Core</th>
-                                        <th>Memory</th>
-                                        <th>Power</th>
-                                        <th>Efficiency</th>
-                                    </tr>
-                                    </tfoot>
+<!--                                    <tfoot>-->
+<!--                                    <tr>-->
+<!--                                        <th>ID</th>-->
+<!--                                        <th>GPU</th>-->
+<!--                                        <th>Fan</th>-->
+<!--                                        <th>Temperature</th>-->
+<!--                                        <th>Speed</th>-->
+<!--                                        <th>Core</th>-->
+<!--                                        <th>Memory</th>-->
+<!--                                        <th>Power</th>-->
+<!--                                        <th>Efficiency</th>-->
+<!--                                    </tr>-->
+<!--                                    </tfoot>-->
                                 </table>
                             </div>
 
                         </div>
                     </div>
-
-                    <div class="text-center m-t-lg">
-                        <h1>
-                            ㄴㄴㄴㅇㅇㅇ
-
-                        </h1>
-                        <small>
-
-                        </small>
-                    </div>
-
-
                 </div>
             </div>
         </div>

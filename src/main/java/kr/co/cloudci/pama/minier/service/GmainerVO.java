@@ -1,5 +1,14 @@
-public class Response{
+package kr.co.cloudci.pama.minier.service;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import groovy.transform.builder.Builder;
+import lombok.Getter;
+
+import java.util.List;
+
+@Getter
+@Builder
+public class GmainerVO {
 	@JsonProperty("server")
 	private String server;
 
@@ -51,71 +60,4 @@ public class Response{
 	@JsonProperty("algorithm")
 	private String algorithm;
 
-	public String getServer(){
-		return server;
-	}
-
-	public int getSpeedRatePrecision(){
-		return speedRatePrecision;
-	}
-
-	public List<DevicesItem> getDevices(){
-		return devices;
-	}
-
-	public double getSharesPerMinute(){
-		return sharesPerMinute;
-	}
-
-	public double getElectricity(){
-		return electricity;
-	}
-
-	public int getTotalRejectedShares(){
-		return totalRejectedShares;
-	}
-
-	public String getSpeedUnit(){
-		return speedUnit;
-	}
-
-	public String getMiner(){
-		return miner;
-	}
-
-	public int getUptime(){
-		return uptime;
-	}
-
-	public int getTotalStaleShares(){
-		return totalStaleShares;
-	}
-
-	public int getPoolSpeed(){
-		return poolSpeed;
-	}
-
-	public boolean isExtendedShareInfo(){
-		return extendedShareInfo;
-	}
-
-	public String getPowerUnit(){
-		return powerUnit;
-	}
-
-	public int getTotalAcceptedShares(){
-		return totalAcceptedShares;
-	}
-
-	public String getUser(){
-		return user;
-	}
-
-	public int getTotalInvalidShares(){
-		return totalInvalidShares;
-	}
-
-	public String getAlgorithm(){
-		return algorithm;
-	}
 }

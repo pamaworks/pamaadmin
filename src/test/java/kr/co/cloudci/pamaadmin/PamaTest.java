@@ -4,18 +4,8 @@ package kr.co.cloudci.pamaadmin;
 
 import kr.co.cloudci.pama.minier.service.DevicesItem;
 import kr.co.cloudci.pama.minier.service.MainerService;
-import kr.co.cloudci.pama.minier.service.Response;
+import kr.co.cloudci.pama.minier.service.GmainerVO;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.converter.FormHttpMessageConverter;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class PamaTest {
 
@@ -36,7 +26,7 @@ public class PamaTest {
         MainerService mainerService = new MainerService();
 
         for (int i=1;i < 10;i++){
-            Response result = mainerService.getStat("http://220.126.107.155:3333"+i+"/stat");
+            GmainerVO result = mainerService.getStat("http://220.126.107.155:3333"+i+"/stat");
             for(DevicesItem  devicesItem : result.getDevices() ) {
 
 

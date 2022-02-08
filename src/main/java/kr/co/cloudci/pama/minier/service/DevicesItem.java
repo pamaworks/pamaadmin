@@ -56,4 +56,7 @@ public class DevicesItem {
 	@JsonProperty("core_clock")
 	private int coreClock;
 
+	@JsonProperty("speedFmt")
+	private int speedFmt;
+
 }

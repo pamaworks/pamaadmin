@@ -1,18 +1,8 @@
 package kr.co.cloudci.pama.minier.service;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.FormHttpMessageConverter;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @Service
 public class MainerService {
@@ -28,7 +18,7 @@ public class MainerService {
             return (value + " " + valueUnit);
     }
 
-    public Response getStat(String urlStr){
+    public GmainerVO getStat(String urlStr){
         //List<HttpMessageConverter<?>> converters = new ArrayList<HttpMessageConverter<?>>();
         //converters.add(new FormHttpMessageConverter());
         //converters.add(new StringHttpMessageConverter());
@@ -42,7 +32,7 @@ public class MainerService {
 
 
         // REST API 호출
-        ResponseEntity<Response> result = restTemplate.getForEntity(urlStr,  Response.class);
+        ResponseEntity<GmainerVO> result = restTemplate.getForEntity(urlStr,  GmainerVO.class);
 
 //        System.out.println(" statusCode : " + result.getStatusCode());
 //        System.out.println(" header : " + result.getHeaders());
