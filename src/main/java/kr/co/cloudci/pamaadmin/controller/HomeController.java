@@ -26,7 +26,8 @@ public class HomeController {
 
            for(DevicesItem devicesItem : minerVO.getDevices() ) {
 
-               devicesItem.updateSpeedFmt(minerVO.getSpeedRatePrecision(), minerVO.getSpeedUnit());
+               devicesItem.updateAddField(minerVO.getSpeedRatePrecision(), minerVO.getSpeedUnit(), minerVO.getPowerUnit());
+
                list.add(devicesItem);
 
 
