@@ -29,13 +29,14 @@ public class HomeController {
                devicesItem.updateSpeedFmt(minerVO.getSpeedRatePrecision(), minerVO.getSpeedUnit());
                list.add(devicesItem);
 
-
                //mainerService.formatValue(devicesItem.getSpeed(), minerVO.getSpeedRatePrecision(), minerVO.getSpeedUnit());
 
 //               printStr +=  " <br/> NO : [" + no + "] Name => : " + devicesItem.getName()+ " 온도 : "  +  devicesItem.getTemperature() + "C 해쉬 : " + mainerService.formatValue(devicesItem.getSpeed(), result.getSpeedRatePrecision(), result.getSpeedUnit()) ;
             };
 
         }
+
+        Model
 
         model.addAttribute("list", list);
 
