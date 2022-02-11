@@ -40,12 +40,12 @@
                                         <th>ID</th>
                                         <th>GPU</th>
                                         <th>Fan</th>
-                                        <th>Temperature</th>
+                                        <th>온도</th>
                                         <th>Speed</th>
                                         <th>Core</th>
                                         <th>Memory</th>
                                         <th>Power</th>
-                                       <!-- <th>Efficiency</th>-->
+                                        <th>전성비</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -53,13 +53,13 @@
                                     <tr class="gradeA" th:each="devicesItem : ${list}">
                                         <td th:text="${devicesItem.gpuId}">gpuId</td>
                                         <td th:text="${devicesItem.name}">name</td>
+                                        <td th:text="${devicesItem.fan}">fan</td>
                                         <td th:text="${devicesItem.temperature}">temperature</td>
-                                        <td th:text="${devicesItem.fan}">server</td>
                                         <td th:text="${devicesItem.speedFmt}">speedFmt</td>
                                         <td th:text="${devicesItem.coreClock}">coreClock</td>
                                         <td th:text="${devicesItem.memoryClock}">memoryClock</td>
-                                        <td th:text="${devicesItem.powerUsage}">server</td>
-                                        <!--<td th:text="${devicesItem.busId}">server</td>-->
+                                        <td th:text="${devicesItem.powerUsage}">powerUsage</td>
+                                        <td th:text="${devicesItem.efficiency}">efficiency</td>
                                     </tr>
                                     </tbody>
 <!--                                    <tfoot>-->

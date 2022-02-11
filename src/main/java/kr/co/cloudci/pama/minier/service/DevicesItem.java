@@ -59,10 +59,30 @@ public class DevicesItem {
 
 	private String speedFmt;
 
-	public void updateSpeedFmt(int speedRatePrecision, String speedUnit){
+	private String efficiency;
+
+	/**
+	 * 업데이트 필드
+	 * @param speedRatePrecision
+	 * @param speedUnit
+	 * @param powerUnit
+	 */
+	public void updateAddField(int speedRatePrecision, String speedUnit, String powerUnit ){
 		this.speedFmt = formatValue(this.speed, speedRatePrecision, speedUnit);
+		if(this.powerUsage > 0) {
+			this.efficiency = formatValue(this.speed / this.powerUsage, 2, powerUnit);
+		}else {
+			this.efficiency = "N/A";
+		}
 	}
 
+	/**
+	 * 포멧
+	 * @param value
+	 * @param speedRatePrecision
+	 * @param speedUnit
+	 * @return
+	 */
 	public String formatValue(int value, int speedRatePrecision, String speedUnit) {
 		if (value >= 1000000000)
 			return ((value / 1000000000) + " G" + speedUnit);
