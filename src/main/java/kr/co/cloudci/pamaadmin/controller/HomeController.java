@@ -14,34 +14,51 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = "/main", method= RequestMethod.GET)
+    @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String goMain(Model model) {
 
         MainerService mainerService = new MainerService();
 
         List<DevicesItem> list = new ArrayList<DevicesItem>();
         GmainerVO minerVO = new GmainerVO();
-        for (int i=1;i < 10;i++){
-            minerVO = mainerService.getStat("http://220.126.107.155:3333"+i+"/stat");
 
-           for(DevicesItem devicesItem : minerVO.getDevices() ) {
+        for (int i = 1; i < 10; i++) {
+            minerVO = mainerService.getStat("http://220.126.107.155:3333" + i + "/stat");
 
-               devicesItem.updateAddField(minerVO.getSpeedRatePrecision(), minerVO.getSpeedUnit(), minerVO.getPowerUnit());
+            for (DevicesItem devicesItem : minerVO.getDevices()) {
 
-               list.add(devicesItem);
-
-               //mainerService.formatValue(devicesItem.getSpeed(), minerVO.getSpeedRatePrecision(), minerVO.getSpeedUnit());
-
-//               printStr +=  " <br/> NO : [" + no + "] Name => : " + devicesItem.getName()+ " 온도 : "  +  devicesItem.getTemperature() + "C 해쉬 : " + mainerService.formatValue(devicesItem.getSpeed(), result.getSpeedRatePrecision(), result.getSpeedUnit()) ;
-            };
+                devicesItem.updateAddField(minerVO.getSpeedRatePrecision(), minerVO.getSpeedUnit(), minerVO.getPowerUnit());
+                list.add(devicesItem);
+             }
 
         }
 
-        Model
+        model.addAttribute("list", list);
+
+        return "main";
+    }
+
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public String goAll(Model model) {
+
+        MainerService mainerService = new MainerService();
+
+        List<DevicesItem> list = new ArrayList<DevicesItem>();
+        GmainerVO minerVO = new GmainerVO();
+
+        for (int i = 1; i < 10; i++) {
+            minerVO = mainerService.getStat("http://220.126.107.155:3333" + i + "/stat");
+
+            for (DevicesItem devicesItem : minerVO.getDevices()) {
+
+                devicesItem.updateAddField(minerVO.getSpeedRatePrecision(), minerVO.getSpeedUnit(), minerVO.getPowerUnit());
+                list.add(devicesItem);
+            }
+
+        }
 
         model.addAttribute("list", list);
 
         return "main";
     }
 }
-
