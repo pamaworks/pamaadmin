@@ -1,0 +1,10 @@
+
+docker run -d --name=influxdb -p 8086:8086 influxdb:2.1.1
+
+docker run -d --name=grafana -p 3000:3000 --link influxdb:influxdb grafana/grafana-oss:8.3.6
+qwer4321!
+docker pull jetbrains/teamcity-server
+
+docker pull jenkins/jenkins:2.319.3-lts-jdk11
+
+docker run -itd --name jenkins -p 8085:8080 jenkins/jenkins:2.319.3-lts-jdk11

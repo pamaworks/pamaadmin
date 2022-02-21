@@ -1,0 +1,7 @@
+from(bucket: "pamadbbucket")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "httpjson_webserver_stats")
+  |> filter(fn: (r) => r["_field"] == "pool_speed")
+  |> group(columns: ["key"])
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "mean")

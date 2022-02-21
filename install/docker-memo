@@ -1,0 +1,9 @@
+
+docker exec -it  pama-web-mariadb10.6.5  /bin/bash
+
+mysql -uroot -proot
+
+
+확인사항
+docker 빋드하면 같은 버전으로도 새로 들어감.
+ -> aws push

@@ -1,0 +1,39 @@
+
+ssh 실행후 파워샐 변경
+
+c:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+
+New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
+exit
+
+
+
+#
+scp *.ps1 192.168.50.202:C:\Users\user\Documents\coin\
+
+scp C:\Users\hyokwon.park\IdeaProjects\pama-web\install\telegraf-infuxdb-grafana\telegraf.conf 192.168.50.201:\Users\user\Documents\coin\telegraf\
+
+ssh 192.168.50.201
+
+C:\Users\user\Documents\coin\telegraf
+
+
+Set-ExecutionPolicy Unrestricted
+[Environment]::SetEnvironmentVariable('DEVICEID', '201', 'Machine')
+
+install
+
+#DEVICEID=[Environment]::GetEnvironmentVariable('DEVICEID','Machine')
+
+$DEVICEID=[Environment]::GetEnvironmentVariable('DEVICEID','Machine')
+wget https://dl.influxdata.com/telegraf/releases/telegraf-1.21.4_windows_amd64.zip -UseBasicParsing -OutFile telegraf.zip
+Expand-Archive -Force .\telegraf.zip -DestinationPath '.\telegraf'
+copy -Force '.\telegraf\telegraf-1.21.4\telegraf.exe' '.\telegraf\'
+
+C:\Users\user\Documents\coin\telegraf\telegraf.exe --service install --config "C:\Users\user\Documents\coin\telegraf\telegraf.conf"
+
+ssh 192.168.50.201 C:\Users\user\Documents\coin\telegraf\telegraf.exe --service restart
+
+
+
+
