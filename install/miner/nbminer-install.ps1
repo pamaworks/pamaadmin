@@ -1,20 +1,19 @@
+$arg1=$args[0]
+$arg2=$args[1]
 
-if ( $args ){
-    echo "${args}"
+if ( $arg1 ){
+    echo "${arg1}"
+    echo "${arg2} install"
 }else{
     Exit
 }
 
-
-$key=$args
+$key=$arg1
 $TARGET="192.168.50."+${key}
-scp -r telegraf-deploy.ps1  ${TARGET}:C:\Users\user\Documents\coin\
-scp -r telegraf.conf ${TARGET}:C:\Users\user\Documents\coin\
 
-ssh ${TARGET}  "Set-ExecutionPolicy Unrestricted"
+scp -r .\bin\  ${TARGET}:C:\Users\user\Documents\coin\
+scp nbminer-deploy.ps1  ${TARGET}:C:\Users\user\Documents\coin\
 
-ssh ${TARGET} "[Environment]::SetEnvironmentVariable('DEVICEID', 'D${key}', 'Machine')"
-ssh ${TARGET} "[Environment]::GetEnvironmentVariable('DEVICEID', 'Machine')"
-
-
-ssh ${TARGET}  C:\Users\user\Documents\coin\telegraf-deploy.ps1
+if( $arg2 -eq "nbminer" ){
+    ssh ${TARGET} C:\Users\user\Documents\coin\nbminer-deploy.ps1
+}

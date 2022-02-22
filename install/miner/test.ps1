@@ -1,0 +1,4 @@
+
+$ppp = $mode
+
+echo "${ppp}"

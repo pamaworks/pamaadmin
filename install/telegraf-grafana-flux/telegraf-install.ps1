@@ -17,4 +17,4 @@ ssh ${TARGET} "[Environment]::SetEnvironmentVariable('DEVICEID', 'D${key}', 'Mac
 ssh ${TARGET} "[Environment]::GetEnvironmentVariable('DEVICEID', 'Machine')"
 
 
-ssh ${TARGET}  C:\Users\user\Documents\coin\telegraf-deploy.ps1
+ssh ${TARGET} "C:\Users\user\Documents\coin\telegraf-deploy.ps1 noinstall"
