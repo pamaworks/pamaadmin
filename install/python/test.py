@@ -1,4 +1,4 @@
-import requests,json
+import requests, json
 
 
 
@@ -13,4 +13,4 @@ jsonData = json.loads(data.content);
 print(jsonData['version']);
 
 for device in jsonData['miner']['devices']:
-    print("D201:" + str(device['id']) + "_" + str(device['info']).replace(' ','') + " " + str(device).replace('{','').replace('{','').replace(',', '').replace(': ', ':'));
+    print("MINING, servername:D201, gpuname:" + str(device['id']) + "_" + str(device['info']).replace(' ','') + " " + str(device).replace('}','').replace('{','').replace('{','').replace(',', '').replace(': ', ':'));
