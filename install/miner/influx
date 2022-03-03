@@ -1,0 +1,18 @@
+메트릭명:태그값 값:키 값:키 값:키 값:키 값:키 값:키
+temperature:? d201_0_3070:55 d201_1_3070:55 d201_2_3070:55 d201_3_3070:54 d201_4_3070:54 d201_5_3070:54
+
+
+from(bucket: "pamadbbucket")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "httpjson_webserver_stats")
+  |> filter(fn: (r) =>
+  r["_field"] == "miner_devices_0_temperature" or
+  r["_field"] == "miner_devices_1_temperature" or
+  r["_field"] == "miner_devices_2_temperature" or
+  r["_field"] == "miner_devices_3_temperature" or
+  r["_field"] == "miner_devices_4_temperature" or
+  r["_field"] == "miner_devices_5_temperature")
+
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+  |> yield(name: "mean")
