@@ -1,3 +1,4 @@
+$env:LC_ALL='C.UTF-8'
 $arg1=$args[0]
 $arg2=$args[1]
 
@@ -18,6 +19,6 @@ scp -r "Start-Miner.bat" "setenv-D${arg1}.bat" "miner-install.ps1"  ${TARGET}:C:
 cd ..
 
 
-if( $arg2 -eq "nbminer" -or $arg2 -eq "nbminer2" ){
+if( $arg2 -eq "nbminer" -or $arg2 -eq "gminer" ){
     ssh ${TARGET} C:\Users\user\Documents\coin\bin\miner-install.ps1 ${arg2}
 }
