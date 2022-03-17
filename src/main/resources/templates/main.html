@@ -45,7 +45,7 @@
                                         <th>Core</th>
                                         <th>Memory</th>
                                         <th>Power</th>
-                                        <th>전성비</th>
+                                        <th>acceptedShares</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -59,7 +59,9 @@
                                         <td th:text="${devicesItem.coreClock}">coreClock</td>
                                         <td th:text="${devicesItem.memoryClock}">memoryClock</td>
                                         <td th:text="${devicesItem.powerUsage}">powerUsage</td>
-                                        <td th:text="${devicesItem.efficiency}">efficiency</td>
+                                        <td >[[${devicesItem.acceptedShares}]]
+                                            / [[${devicesItem.rejectedShares}]]
+                                            / [[${devicesItem.invalidShares}]] </td>
                                     </tr>
                                     </tbody>
 <!--                                    <tfoot>-->

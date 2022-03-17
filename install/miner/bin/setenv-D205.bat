@@ -14,7 +14,7 @@ goto End
 
 :: ------------------ gminer Start--------------------------------
 :gminer
-cd C:\Users\user\Documents\coin\bin\gminer_2_83_windows64
+cd C:\Users\user\Documents\coin\bin\gminer_2_89_windows64
 
 set ARG1=  --templimit 80 --tfan 65 --tfan_min 85 --tfan_max 99  --mclock +1280
 set ARG2=  --log_newjob 0  --api 3333

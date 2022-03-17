@@ -22,8 +22,9 @@ public class HomeController {
         List<DevicesItem> list = new ArrayList<DevicesItem>();
         GmainerVO minerVO = new GmainerVO();
 
-        for (int i = 1; i < 10; i++) {
-            minerVO = mainerService.getStat("http://220.126.107.155:3333" + i + "/stat");
+        for (int i = 1; i < 8; i++) {
+            minerVO = mainerService.getStat("http://192.168.50.20" + i + ":3333/stat");
+
 
             for (DevicesItem devicesItem : minerVO.getDevices()) {
 
@@ -46,8 +47,8 @@ public class HomeController {
         List<DevicesItem> list = new ArrayList<DevicesItem>();
         GmainerVO minerVO = new GmainerVO();
 
-        for (int i = 1; i < 10; i++) {
-            minerVO = mainerService.getStat("http://220.126.107.155:3333" + i + "/stat");
+        for (int i = 1; i < 2; i++) {
+            minerVO = mainerService.getStat("http://192.168.50.201:3333/stat");
 
             for (DevicesItem devicesItem : minerVO.getDevices()) {
 
