@@ -1,0 +1,38 @@
+{
+    "miner": "GMiner 2.89",
+    "uptime": 2575,
+    "server": "ssl://asia1-etc.ethermine.org:5555",
+    "user": "0x8d1f3496a1f267c4b486ad6520a4729ef1ef04b5.D32",
+    "extended_share_info": true,
+    "shares_per_minute": 0.65,
+    "pool_speed": 43495146,
+    "algorithm": "Etchash",
+    "electricity": 0.091,
+    "total_accepted_shares": 28,
+    "total_rejected_shares": 0,
+    "total_stale_shares": 0,
+    "total_invalid_shares": 0,
+    "devices": [
+        {
+            "gpu_id": 0,
+            "bus_id": "0000:65:00.0",
+            "name": "3060Ti",
+            "speed": 42854449,
+            "accepted_shares": 28,
+            "rejected_shares": 0,
+            "stale_shares": 0,
+            "invalid_shares": 0,
+            "fan": 85,
+            "temperature": 44,
+            "temperature_limit": 80,
+            "memory_temperature": 0,
+            "memory_temperature_limit": 120,
+            "core_clock": 1455,
+            "memory_clock": 7650,
+            "power_usage": 127
+        }
+    ],
+    "speed_rate_precision": 0,
+    "speed_unit": "H/s",
+    "power_unit": "H/W"
+}

@@ -16,4 +16,8 @@ if ( -not (Test-Path -Path "gminer_2_89_windows64"))  {
     Expand-Archive -Force  -Path ${DOWNLOADPATH}\gminer_2_89_windows64.zip
 }
 
+if ( -not (Test-Path -Path "gminer_2_74_windows64"))  {
+    Expand-Archive -Force  -Path ${DOWNLOADPATH}\gminer_2_74_windows64.zip
+}
+
 echo "${minername} install complete ...."

@@ -70,3 +70,7 @@ Stop-Process -name explorer
 퍼티 세션 종료
 
 stop-process -name putty
+
+
+
+리눅스 채굴
