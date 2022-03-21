@@ -1,6 +1,6 @@
 import requests
 import json
-
+//https://blog.daum.net/geoscience/1636
 #url = "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=0ad7a4a19ff62f3f1e501f208c564626&redirect_uri=http://localhost:8080&scope=talk_message,friends";
 
 
