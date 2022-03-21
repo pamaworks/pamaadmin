@@ -41,7 +41,7 @@ def formatUptime(uptime):
 # 				+ ("0" + math.floor(minutes)).substr(-2) + ":"
 # 				+ ("0" + math.floor(seconds)).substr(-2));	
 
-    
+ 
 def printHash(hostip, url):
     requestsData=requests.get(url);
     jsonData = json.loads(requestsData.text);
@@ -54,6 +54,7 @@ def printHash(hostip, url):
     uptimeStr=formatUptime(jsonData['uptime']);
     acceptedShares=jsonData['total_accepted_shares'];
     deviceCount = len(jsonData['devices']);
+    
 
     
     print(hostip +  "("+algorithm +":" +miner + ") uptime : " + uptimeStr + " Total:" + totalHashrate + " accepted_shares : " + str(acceptedShares )  + " " + str(deviceCount) ) ;
@@ -63,21 +64,25 @@ def printHash(hostip, url):
 
     for device in jsonData['devices']:
         deviceHashrate=formatValue(device['speed'],"H/S");
-        print("    : MINING, servername:" + hostip + ", gpuname:" + str(device['gpu_id']) + "_" + str(device['name'])
-        + " "  + str(deviceHashrate) );
+        print(" " + "gpuname:" + hostip + "_" + str(device['gpu_id']) + "_" + str(device['name'])
+        
+        + " temperature:"  + str(device['temperature'])
+        + " fan:"  + str(device['fan']) 
+        + " deviceHashrate:"  + str(deviceHashrate) 
+        
+        );
         # + str(device).replace('}','').replace('{','').replace('{','').replace(',', '').replace(': ', ':'));
 
-    return;
+    return deviceCount;
 
+miningHosts="201","202","203","204","205","206","207","208", "32", "151";
 
-
-miningHosts="201","202","203","204","205","206","207","208", "32";
-
+totalDeviceCount = 0;
 for hostip in miningHosts:
     urlStr = "http://192.168.50." + hostip + ":3333/stat";
-    printHash(hostip, urlStr);
+    totalDeviceCount += printHash(hostip, urlStr);
 
-
+print("totalDevice : ==> " + str(totalDeviceCount));
 
 
 

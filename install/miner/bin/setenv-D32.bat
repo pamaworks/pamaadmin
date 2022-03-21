@@ -17,7 +17,7 @@ goto End
 :gminer
 cd %HOMEPATH%\Documents\coin\bin\gminer_2_89_windows64
 
-set ARG1=  --templimit 80 --tfan 60 --tfan_min 85 --tfan_max 99  --mclock +850
+set ARG1=  --templimit 80 --tfan 60 --tfan_min 85 --tfan_max 99  --mclock +840
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe --algo ethash --ssl 1 --server %URL% --user %USER%.%WORKER%  %ARG1% %ARG2%
