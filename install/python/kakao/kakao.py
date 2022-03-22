@@ -11,6 +11,6 @@ url = "https://kapi.kakao.com/v1/api/talk/friends" #친구 목록 가져오기
 header = {"Authorization": 'Bearer ' + tokens["access_token"]}
 
 result = json.loads(requests.get(url, headers=header).text)
-# friends_list = result.get("elements")
+friends_list = result.get("elements")
 
-print(result)
+print(friends_list)
