@@ -23,7 +23,7 @@ def formatUptime(uptime):
     # return str(day) + " " + str(hours) + " " + str(minutes);
     return
 
-miningHosts="201","202","203","204","205","206","207","208",  "151";
+miningHosts="201","202","203","204","205","206","207","208","151";
 totalDeviceCount = 0;
 msg ="";
 for hostip in miningHosts:

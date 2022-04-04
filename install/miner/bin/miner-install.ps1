@@ -12,12 +12,24 @@ if ( -not (Test-Path -Path "gminer_2_86_windows64") )  {
     Expand-Archive -Force  -Path ${DOWNLOADPATH}\gminer_2_86_windows64.zip
 }
 
+if ( -not (Test-Path -Path "gminer_2_74_windows64"))  {
+    Expand-Archive -Force  -Path ${DOWNLOADPATH}\gminer_2_74_windows64.zip
+}
+
 if ( -not (Test-Path -Path "gminer_2_89_windows64"))  {
     Expand-Archive -Force  -Path ${DOWNLOADPATH}\gminer_2_89_windows64.zip
 }
 
-if ( -not (Test-Path -Path "gminer_2_74_windows64"))  {
-    Expand-Archive -Force  -Path ${DOWNLOADPATH}\gminer_2_74_windows64.zip
+if ( -not (Test-Path -Path "gminer_2_90_windows64"))  {
+    Expand-Archive -Force  -Path ${DOWNLOADPATH}\gminer_2_90_windows64.zip
+}
+
+if ( -not (Test-Path -Path "gminer_2_91_windows64"))  {
+    Expand-Archive -Force  -Path ${DOWNLOADPATH}\gminer_2_91_windows64.zip
+}
+
+if ( -not (Test-Path -Path "lolMiner_v1.48_Win64"))  {
+    Expand-Archive -Force  -Path ${DOWNLOADPATH}\lolMiner_v1.48_Win64.zip
 }
 
 echo "${minername} install complete ...."

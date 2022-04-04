@@ -1,0 +1,34 @@
+1. 원pro 10 설치
+2. 원격 설정
+3. 가상메모리설정
+4. 부팅시 로그인 설정
+5. 전원설정
+6. 로칼 보안정책 >  로칼 정책 > 사용자 계정 컨트롤 : 관리 승인 모드에서 모든 관리자 실행 사용안함
+
+
+
+ssh 실행후 파워샐 변경
+
+c:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+
+New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
+exit
+
+
+
+#
+scp *.ps1 192.168.50.202:C:\Users\user\Documents\coin\
+
+scp C:\Users\hyokwon.park\IdeaProjects\pama-web\install\telegraf-infuxdb-grafana\telegraf.conf 192.168.50.201:\Users\user\Documents\coin\telegraf\
+
+ssh 192.168.50.201
+
+C:\Users\user\Documents\coin\telegraf
+
+
+Set-ExecutionPolicy Unrestricted
+[Environment]::SetEnvironmentVariable('DEVICEID', '99', 'Machine')
+
+
+
+$DEVICEID=[Environment]::GetEnvironmentVariable('DEVICEID','Machine')

@@ -7,7 +7,7 @@ goto %miner%
 
 :: ------------------ nbminer Start--------------------------------
 :nbminer
-cd  C:\Users\user\Documents\coin\bin\NBMiner_40.1_Win\NBMiner_Win
+cd  %NBMinerPath%
 set ARG0= --log --log-no-job --api 0.0.0.0:3333 --mclock 1240 --fan 75
 nbminer -a ethash -o stratum+ssl://%URL%  -u %USER%.%WORKER% %ARG0%
 goto End
@@ -15,14 +15,22 @@ goto End
 
 :: ------------------ gminer Start--------------------------------
 :gminer
-cd C:\Users\user\Documents\coin\bin\gminer_2_89_windows64
+cd %GminerPath%
 
-set ARG1=  --templimit 80 --tfan 65 --tfan_min 65 --tfan_max 99  --mclock +1250
+set ARG1=  --templimit 80 --tfan 65 --tfan_min 75 --tfan_max 99  --mclock +1250
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe --algo ethash --ssl 1 --server %URL% --user %USER%.%WORKER%  %ARG1% %ARG2%
 goto End
 :: ------------------ gminer End --------------------------------
+
+:: ------------------ lolminer Start--------------------------------
+:lolminer
+cd %LolMinerPath%
+
+lolMiner.exe --algo ETHASH --pool stratum+ssl://%URL% --user  %USER%.%WORKER% --apiport 3333 --apihost 0.0.0.0 
+goto End
+:: ------------------ lolminer End --------------------------------
 
 :End
 
