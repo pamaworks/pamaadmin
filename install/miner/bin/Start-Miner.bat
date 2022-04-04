@@ -14,4 +14,4 @@ set LolMinerPath=%HOMEPATH%\Documents\coin\bin\lolMiner_v1.48_Win64\1.48
 
 cd %homepath%\Documents\coin\bin
 TIMEOUT 30
-.\setenv-D%DEVICEID%.bat
+.\setenv-%DEVICEID%.bat

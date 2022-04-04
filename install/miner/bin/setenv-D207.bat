@@ -26,6 +26,14 @@ miner.exe --algo ethash --ssl 1 --server %URL% --user %USER%.%WORKER%  %ARG1% %A
 goto End
 :: ------------------ gminer End --------------------------------
 
+:: ------------------ lolminer Start--------------------------------
+:lolminer
+cd %LolMinerPath%
+
+lolMiner.exe --algo ETHASH --pool stratum+ssl://%URL% --user  %USER%.%WORKER% --apiport 3333 --apihost 0.0.0.0 
+goto End
+:: ------------------ lolminer End --------------------------------
+
 :End
 
 pause
