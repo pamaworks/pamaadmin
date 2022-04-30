@@ -5,18 +5,31 @@
 5. 전원설정
 6. 로칼 보안정책 >  로칼 정책 > 사용자 계정 컨트롤 : 관리 승인 모드에서 모든 관리자 실행 사용안함
 
+7. 방화벽 개방
 
+: shell:startup
+
+3. 윈도우 자동 로그인 : DevicePasswordLessBuildVersion.reg 실행
+
+4.  실행 :  netplwiz 
 
 ssh 실행후 파워샐 변경
 
 c:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 
 New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
+
+
+Set-ExecutionPolicy Unrestricted
+
+
 exit
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC2Ue+yEGV/VMR0gtxQ+JACNc22fhJknGdtn+ZK7D4OM+ALKppQtoHRF36wQ05B7yDfTRyLVbJyHJ0vfIMvhQAmTXMa/6yh2EIZkDNTNG9UijHGH5rVSakHwiCNOkc4auhc6Tay9EokzNW0H8+xMO5HAM7F9Mk9JiaaYTzBu1VhOlqBZlsxN3SbFZn6Cc0VvzFTemOn3B5ba4TEJ6c6UwnA3Ox/HP/jpDxvs6JsS7oqUBrlqvw84BLpV3GGSvFHm5KltZXiLpwNJroO1m1E+N22HxTYX6aRFaCAJTsPx7bJ2bID7hys0X6OHJT/B49lbOQ+0xpTe54BQlGTkf5YNFJ9YjuhBqL8IqXfJItBnfC9cI9q7IMQsTAPkXp0KC+HMeXNgVZGPMIOySgGWHmiZgjrCUgPtsDWyhitcmfh6xRlEEAMa445tLN4LjLersoZaNT83zl08Td44ectNT7NmLwOqu1iCSOhVLC21GYYWpCFL5nvBxnhSn+s0YZl1WGgKs8= cci@DESKTOP-6MUMC94 
+
+> authorized_keys
 
 
 
-#
 scp *.ps1 192.168.50.202:C:\Users\user\Documents\coin\
 
 scp C:\Users\hyokwon.park\IdeaProjects\pama-web\install\telegraf-infuxdb-grafana\telegraf.conf 192.168.50.201:\Users\user\Documents\coin\telegraf\

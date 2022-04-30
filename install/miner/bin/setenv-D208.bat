@@ -1,7 +1,7 @@
 
 "c:\windows\system32\nvidia-smi.exe" -lgc 1125
 
-set miner=gminer
+set miner=trexminer
 @echo Start %miner% ............................................
 goto %miner%
 
@@ -31,6 +31,15 @@ cd %LolMinerPath%
 lolMiner.exe --algo ETHASH --pool stratum+ssl://%URL% --user  %USER%.%WORKER% --apiport 3333 --apihost 0.0.0.0 
 goto End
 :: ------------------ lolminer End --------------------------------
+
+:: ------------------ trexminer Start--------------------------------
+:trexminer
+cd %TrexminerPath%
+
+t-rex.exe -a ethash -o stratum+ssl://%URL% -u %USER% -p x -w %WORKER% --api-bind-http 0.0.0.0:3333 --mclock  1250  --fan t:65[65-100]
+pause
+goto End
+:: ------------------ trexminer End --------------------------------
 
 :End
 
