@@ -11,7 +11,7 @@ set WORKER=%DEVICEID%
 set NBMinerPath=%HOMEPATH%\Documents\coin\bin\NBMiner_40.1_Win\NBMiner_Win
 set GminerPath=%HOMEPATH%\Documents\coin\bin\gminer_2_91_windows64
 set LolMinerPath=%HOMEPATH%\Documents\coin\bin\lolMiner_v1.48_Win64\1.48
-set TrexminerPath=%HOMEPATH%\Documents\coin\bin\t-rex-0.25.12-win
+set TrexminerPath=%HOMEPATH%\Documents\coin\bin\t-rex-0.25.13-win
 
 cd %homepath%\Documents\coin\bin
 TIMEOUT 30

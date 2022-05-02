@@ -19,3 +19,7 @@ requests.get("https://api.telegram.org/bot5131433508:AAEpJjzc1Aqr26SPI3JApFL_KF7
 
 
 
+# {"ok":true,"result":[{"update_id":467934092,
+# "channel_post":{"message_id":14,"sender_chat":{"id":-1001764972762,"title":"pamamon","type":"channel"},"chat":{"id":-1001764972762,"title":"pamamon","type":"channel"},"date":1651301899,"text":"/getid","entities":[{"offset":0,"length":6,"type":"bot_command"}]}},{"update_id":467934093,
+# "channel_post":{"message_id":15,"sender_chat":{"id":-1001764972762,"title":"pamamon","type":"channel"},"chat":{"id":-1001764972762,"title":"pamamon","type":"channel"},"date":1651302126,"text":"TEST"}},{"update_id":467934094,
+# "channel_post":{"message_id":16,"sender_chat":{"id":-1001764972762,"title":"pamamon","type":"channel"},"chat":{"id":-1001764972762,"title":"pamamon","type":"channel"},"date":1651302127,"text":"TEST"}}]}
