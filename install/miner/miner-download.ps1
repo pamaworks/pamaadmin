@@ -72,8 +72,6 @@ if( -not( Test-Path -path "t-rex-0.25.11-linux.tar.gz") ){
     wget https://trex-miner.com/download/test/t-rex-0.25.11-linux.tar.gz  -UseBasicParsing -OutFile t-rex-0.25.11-linux.tar.gz
 }
 
-if( -not( Test-Path -path "t-rex-0.25.12-win.zip") ){
-    wget https://github.com/trexminer/T-Rex/releases/download/0.25.12/t-rex-0.25.12-win.zip -UseBasicParsing -OutFile t-rex-0.25.12-win.zip
 }
 
 
