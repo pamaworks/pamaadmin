@@ -9,7 +9,7 @@ goto %miner%
 :: ------------------ nbminer Start--------------------------------
 :nbminer
 cd  %NBMinerPath%
-set ARG0= --log --log-no-job --api 0.0.0.0:3333 --mclock 1240 --fan 75
+set ARG0= --log --log-no-job --api 0.0.0.0:3333 --mclock 1250 --fan 75
 nbminer -a ethash -o stratum+ssl://%URL%  -u %USER%.%WORKER% %ARG0%
 goto End
 :: ------------------ nbminer End --------------------------------

@@ -1,6 +1,8 @@
-"c:\windows\system32\nvidia-smi.exe" -lgc 900
+@REM "c:\windows\system32\nvidia-smi.exe" -i 0,2,3,4 -lgc 900
+@REM "c:\windows\system32\nvidia-smi.exe" -i 1,5 -lgc 800
+"c:\windows\system32\nvidia-smi.exe" -lgc 800
 
-set miner=gminer
+set miner=trexminer
 
 @echo Start %miner% ............................................
 goto %miner%
@@ -9,7 +11,7 @@ goto %miner%
 :nbminer
 
 cd  %NBMinerPath%
-set ARG0= --log --log-no-job --api 0.0.0.0:3333 --mclock 1200 --fan 80
+set ARG0= --log --log-no-job --api 0.0.0.0:3333 --mclock 1050,800,1050,1050,1050,800 --fan 95,95,95,95,95,95
 nbminer -a ethash -o stratum+ssl://%URL%  -u %USER%.%WORKER% %ARG0%
 goto End
 :: ------------------ nbminer End --------------------------------
@@ -19,7 +21,7 @@ goto End
 
 cd %GminerPath%
 
-set ARG1=  --tfan 65 --tfan_min 80 --tfan_max 99 --mclock +1100 +1100 +1100 +1100 +1100 +900
+set ARG1=  --tfan 65 --tfan_min 80 --tfan_max 99 --mclock +1100 +1100 +1100 +1100 +1100 +1000
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe --algo ethash --ssl 1 --server %URL% --user %USER%.%WORKER%  %ARG1% %ARG2%
@@ -38,7 +40,7 @@ goto End
 :trexminer
 cd %TrexminerPath%
 ::  --lock-cv 850
-t-rex.exe -a ethash -o stratum+ssl://%URL% -u %USER% -p x -w %WORKER% --api-bind-http 0.0.0.0:3333 --mclock 1100,1100,1100,1100,1100,900  --lhr-low-power --lock-cv 850 --fan t:65[85-100]  --no-new-block-info --gpu-report-interval 10
+t-rex.exe -a ethash -o stratum+ssl://%URL% -u %USER% -p x -w %WORKER% --api-bind-http 0.0.0.0:3333 --mclock 1050,800,1050,1050,1050,800  --lhr-low-power 0,1,0,0,0,1 --fan t:65[85-100]  --no-new-block-info
 pause
 goto End
 :: ------------------ trexminer End --------------------------------

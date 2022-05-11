@@ -1,6 +1,6 @@
 $env:LC_ALL='C.UTF-8'
 
-$hostips = 32,99,201,202,203,205,206,207,208
+$hostips = 32,99,201,202,203,204,205,206,207,208
 #
 foreach ($hostip in $hostips)
 {

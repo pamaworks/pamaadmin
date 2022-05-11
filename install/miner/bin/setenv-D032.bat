@@ -1,15 +1,15 @@
 
-"c:\windows\system32\nvidia-smi.exe" -i 0,2 -lgc 1300
+"c:\windows\system32\nvidia-smi.exe" -i 0,2 -lgc 1320
 
-set miner=trexminer
+set miner=nbminer
 @echo Start %miner% ............................................
 goto %miner%
 
 :: ------------------ nbminer Start--------------------------------
 :nbminer
 cd  %NBMinerPath%
-set ARG0= --log --log-no-job --api 0.0.0.0:3333 --mclock 1240 --fan 75
-nbminer -a ethash -o stratum+ssl://%URL%  -u %USER%.%WORKER% %ARG0%
+set ARG0= -d 0,2 --log --log-no-job --api 0.0.0.0:3333 --mclock 700 --fan 75
+nbminer -a ethash -o stratum+ssl://%URL% -u %USER%.%WORKER% %ARG0%
 goto End
 :: ------------------ nbminer End --------------------------------
 
@@ -35,8 +35,8 @@ goto End
 :: ------------------ trexminer Start--------------------------------
 :trexminer
 cd %TrexminerPath%
-
-t-rex.exe -d 0,2 -a ethash -o stratum+ssl://%URL% -u %USER% -p x -w %WORKER% --lhr-low-power --api-bind-http 0.0.0.0:3333 --mclock 750 --lock-cv 750 --fan t:65[85-100]
+:: --lock-cv 750 --lhr-low-power 1 
+t-rex.exe -d 0,2 -a ethash -o stratum+ssl://%URL% -u %USER% -p x -w %WORKER% --api-bind-http 0.0.0.0:3333 --mclock 740 --fan t:65[85-100]
 pause
 goto End
 :: ------------------ trexminer End --------------------------------
