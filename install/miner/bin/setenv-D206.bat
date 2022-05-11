@@ -1,6 +1,6 @@
 
 "c:\windows\system32\nvidia-smi.exe" -i 0,1 -lgc 950
-"c:\windows\system32\nvidia-smi.exe" -i 2,3 -lgc 1400
+"c:\windows\system32\nvidia-smi.exe" -i 2,3 -lgc 1450
 
 set miner=trexminer
 
@@ -31,7 +31,7 @@ goto End
 :trexminer
 cd %TrexminerPath%
 ::  --lock-cv 850 --lhr-low-power 1 
-t-rex.exe -a ethash -o stratum+ssl://%URL% -u %USER% -p x -w %WORKER% --api-bind-http 0.0.0.0:3333 --pl 60,60,65,65 --mclock 700,700,1200,1200  --lhr-low-power 1,1,0,0 --fan t:65[85-100]  --no-new-block-info
+t-rex.exe -a ethash -o stratum+ssl://%URL% -u %USER% -p x -w %WORKER% --api-bind-http 0.0.0.0:3333 --pl 60,60,65,65 --mclock 700,700,1300,1300  --lhr-low-power 1,1,0,0 --fan t:65[85-100]  --no-new-block-info
 pause
 goto End
 :: ------------------ trexminer End --------------------------------
