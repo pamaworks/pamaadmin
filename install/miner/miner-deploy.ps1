@@ -47,7 +47,7 @@ if ( $hostno -eq "linux" ){
 
 
 }else{
-    ssh ${TARGET} "New-Item -Force -Path .\Documents\coin\download  -ItemType Directory"
+    #ssh ${TARGET} "New-Item -Force -Path .\Documents\coin\download  -ItemType Directory"
 
     $hostnoStr=$hostno
     if ( $hostno -lt 100 ){

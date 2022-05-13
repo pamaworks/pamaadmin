@@ -2,7 +2,7 @@
 "c:\windows\system32\nvidia-smi.exe" -i 0,1 -lgc 950
 "c:\windows\system32\nvidia-smi.exe" -i 2,3 -lgc 1450
 
-set miner=trexminer
+set miner=gminer
 
 @echo Start %miner% ............................................
 goto %miner%
@@ -19,7 +19,7 @@ goto End
 :gminer
 cd %GminerPath%
 
-set ARG1=  --tfan 64 --tfan_min 75 --tfan_max 99  --mclock +700 +700 +1150 +1150
+set ARG1=  --tfan 65 --tfan_min 85 --tfan_max 99  --mclock +700 +700 +1300 +1300
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe --algo ethash --ssl 1 --server %URL% --user %USER%.%WORKER%  %ARG1% %ARG2%

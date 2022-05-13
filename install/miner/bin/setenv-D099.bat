@@ -1,7 +1,7 @@
 
-"c:\windows\system32\nvidia-smi.exe" -lgc 1125
+"c:\windows\system32\nvidia-smi.exe" -lgc 1100
 
-set miner=trexminer
+set miner=gminer
 @echo Start %miner% ............................................
 goto %miner%
 
