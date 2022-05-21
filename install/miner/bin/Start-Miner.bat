@@ -9,7 +9,7 @@ set URLETC=asia1-etc.ethermine.org:5555
 set WORKER=%DEVICEID%
 
 set NBMinerPath=%HOMEPATH%\Documents\coin\bin\NBMiner_41.3_Win\NBMiner_Win
-set GminerPath=%HOMEPATH%\Documents\coin\bin\gminer_2_92_windows64
+set GminerPath=%HOMEPATH%\Documents\coin\bin\gminer_2_96_windows64
 set LolMinerPath=%HOMEPATH%\Documents\coin\bin\lolMiner_v1.48_Win64\1.48
 set TrexminerPath=%HOMEPATH%\Documents\coin\bin\t-rex-0.26.1-win
 

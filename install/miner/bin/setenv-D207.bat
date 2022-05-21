@@ -1,6 +1,6 @@
 @REM "c:\windows\system32\nvidia-smi.exe" -i 0,2,3,4 -lgc 900
 @REM "c:\windows\system32\nvidia-smi.exe" -i 1,5 -lgc 800
-"c:\windows\system32\nvidia-smi.exe" -lgc 800
+"c:\windows\system32\nvidia-smi.exe" -lgc 700
 
 set miner=gminer
 
@@ -11,7 +11,7 @@ goto %miner%
 :nbminer
 
 cd  %NBMinerPath%
-set ARG0= --log --log-no-job --api 0.0.0.0:3333 --mclock 1050,800,1050,1050,1050,800 --fan 95,95,95,95,95,95
+set ARG0= --log --log-no-job --api 0.0.0.0:3333 --mclock 800,800,800,800,800,800 --fan 95,95,95,95,95,95
 nbminer -a ethash -o stratum+ssl://%URL%  -u %USER%.%WORKER% %ARG0%
 goto End
 :: ------------------ nbminer End --------------------------------
@@ -21,7 +21,7 @@ goto End
 
 cd %GminerPath%
 
-set ARG1=  --tfan 65 --tfan_min 90 --tfan_max 99 --mclock +1050 +800 +1050 +1050 +1050 +800
+set ARG1=  --tfan 65 --tfan_min 85 --tfan_max 99 --pl 55 --lhr_mode 0 --mclock +900 +800 +900 +900 +900 +500
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe --algo ethash --ssl 1 --server %URL% --user %USER%.%WORKER%  %ARG1% %ARG2%

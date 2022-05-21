@@ -97,19 +97,18 @@ function Get-GMinerDownload {
 $NBminerVer="NBMiner_41.3_Win.zip"
 $TrexmMnerVer="t-rex-0.26.1-win.zip"
 $TrexmMnerTestVer="t-rex-0.26.1-win.zip"
-$GMinerVer="gminer_2_92_windows64.zip"
+$GMinerVer="gminer_2_96_windows64.zip"
 
 
 # https://trex-miner.com/download/test/t-rex-0.26.1-win.zip
 Get-TRexDownload -FileName $TrexmMnerVer
 Get-TRexTestDownload -FileName $TrexmMnerTestVer
 Get-NBMinerDownload -FileName $NBminerVer
-
 Get-GMinerDownload -FileName $GMinerVer
 
 cd ..
 
-$hostips = "32","99","201","202","203","204","205","206","207","208"
+$hostips = 32,99,201,202,203,204,205,206,207,208
 $SandFile=$GMinerVer
 foreach ($hostip in $hostips) {
 
@@ -126,7 +125,13 @@ foreach ($hostip in $hostips) {
    SshExpandArchive -FileName $SandFile -TARGET $TARGET
 
 
-   
+   $hostnoStr=$hostip
+   if ( $hostip -lt 100 ){
+       $hostnoStr="0"+$hostip
+   }
+   echo  " $hostnoStr -------------------------"
+   ssh ${TARGET} "New-Item -Force -Path .\Documents\coin\bin  -ItemType Directory"
+   scp -r ".\bin\Start-Miner.bat" ".\bin\setenv-D${hostnoStr}.bat" ${TARGET}:.\Documents\coin\bin\
 
 }
 
