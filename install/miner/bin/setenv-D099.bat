@@ -17,7 +17,7 @@ goto End
 :gminer
 cd %GminerPath%
 
-set ARG1=  --tfan 60 --tfan_min 85 --tfan_max 99  --mclock +1250
+set ARG1=  --tfan 60 --tfan_min 85 --tfan_max 99  --mclock +1200
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe  --algo ethash --ssl 1 --server %URL% --user %USER%.%WORKER%  %ARG1% %ARG2%
@@ -29,7 +29,7 @@ goto End
 :gminerETC
 cd %GminerPath%
 
-set ARG1=  --templimit 80 --tfan 60 --tfan_min 85 --tfan_max 99  --mclock +1250
+set ARG1=  --templimit 80 --tfan 60 --tfan_min 85 --tfan_max 99  --mclock +1200
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe --algo etchash --ssl 1 --server %URLETC% --user %USERETC%.%WORKER%  %ARG1% %ARG2%

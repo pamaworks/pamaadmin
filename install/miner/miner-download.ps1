@@ -108,7 +108,7 @@ Get-GMinerDownload -FileName $GMinerVer
 
 cd ..
 
-$hostips = 32,99,201,202,203,204,205,206,207,208
+$hostips = 25,32,99,201,202,203,204,205,206,207,208
 $SandFile=$GMinerVer
 foreach ($hostip in $hostips) {
 
