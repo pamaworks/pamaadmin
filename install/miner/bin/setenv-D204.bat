@@ -1,5 +1,6 @@
 
-"c:\windows\system32\nvidia-smi.exe" -lgc 1100
+"c:\windows\system32\nvidia-smi.exe" -i 0,1,2,3 -lgc 1100
+"c:\windows\system32\nvidia-smi.exe" -i 4 -lgc 900
 
 set miner=gminer
 @echo Start %miner% ............................................
@@ -16,8 +17,8 @@ goto End
 :: ------------------ gminer Start--------------------------------
 :gminer
 cd %GminerPath%
-
-set ARG1=  --tfan 60 --tfan_min 85 --tfan_max 99  --mclock +1200
+::  --pl 50
+set ARG1=  --tfan 60 --tfan_min 65 --tfan_max 99 --mclock +1200 +1200 +1200 +1200 +1100 --lhr_mode 0
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe  --algo ethash --ssl 1 --server %URL% --user %USER%.%WORKER%  %ARG1% %ARG2%
@@ -29,7 +30,7 @@ goto End
 :gminerETC
 cd %GminerPath%
 
-set ARG1=  --templimit 80 --tfan 60 --tfan_min 85 --tfan_max 99  --mclock +1250
+set ARG1=  --templimit 80 --tfan 60 --tfan_min 85 --tfan_max 99  --mclock +1250 +1250 +1250 +1250 +1100
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe --algo etchash --ssl 1 --server %URLETC% --user %USERETC%.%WORKER%  %ARG1% %ARG2%
@@ -57,5 +58,6 @@ goto End
 
 :End
 
-pause
+exit
+
 

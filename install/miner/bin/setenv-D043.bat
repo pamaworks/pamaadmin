@@ -44,4 +44,4 @@ goto End
 
 :End
 
-pause
+exit

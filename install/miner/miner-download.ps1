@@ -46,7 +46,7 @@ function Get-TRexDownload {
     )
     
     $Version = $FileName -creplace "t-rex-","" -creplace "-win.zip",""
-    $invokeCmd = "wget https://github.com/trexminer/T-Rex/releases/download/" + $Version + "/" + $FileName + " -UseBasicParsing -OutFile " + $FileName
+    $invokeCmd = "Invoke-WebRequest https://github.com/trexminer/T-Rex/releases/download/" + $Version + "/" + $FileName + " -UseBasicParsing -OutFile " + $FileName
 
     if( -not( Test-Path -path $FileName) ){
         invoke-expression $invokeCmd 
@@ -60,7 +60,7 @@ function Get-TRexTestDownload {
     )
     
     
-    $invokeCmd = "wget https://trex-miner.com/download/test/" + $FileName + " -UseBasicParsing -OutFile " + $FileName
+    $invokeCmd = "Invoke-WebRequest https://trex-miner.com/download/test/" + $FileName + " -UseBasicParsing -OutFile " + $FileName
 
     if( -not( Test-Path -path $FileName) ){
         invoke-expression $invokeCmd 
@@ -73,7 +73,7 @@ function Get-NBMinerDownload {
     )
     
     $Version = $FileName -creplace "NBMiner_","" -creplace "_Win.zip",""
-    $invokeCmd = "wget https://github.com/NebuTech/NBMiner/releases/download/v" + $Version + "/" + $FileName + " -UseBasicParsing -OutFile " + $FileName
+    $invokeCmd = "Invoke-WebRequest https://github.com/NebuTech/NBMiner/releases/download/v" + $Version + "/" + $FileName + " -UseBasicParsing -OutFile " + $FileName
 
     if( -not( Test-Path -path $FileName) ){
         invoke-expression $invokeCmd 
@@ -86,7 +86,7 @@ function Get-GMinerDownload {
         [boolean]$IsTest
     )
     $Version = $FileName -creplace "gminer_","" -creplace "_windows64.zip","" -creplace "_","."
-    $invokeCmd = "wget https://github.com/develsoftware/GMinerRelease/releases/download/" + $Version + "/" + $FileName + " -UseBasicParsing -OutFile " + $FileName
+    $invokeCmd = "Invoke-WebRequest https://github.com/develsoftware/GMinerRelease/releases/download/" + $Version + "/" + $FileName + " -UseBasicParsing -OutFile " + $FileName
 
     if( -not( Test-Path -path $FileName) ){
         invoke-expression $invokeCmd 
@@ -97,7 +97,7 @@ function Get-GMinerDownload {
 $NBminerVer="NBMiner_41.3_Win.zip"
 $TrexmMnerVer="t-rex-0.26.1-win.zip"
 $TrexmMnerTestVer="t-rex-0.26.1-win.zip"
-$GMinerVer="gminer_2_96_windows64.zip"
+$GMinerVer="gminer_3_01_windows64.zip"
 
 
 # https://trex-miner.com/download/test/t-rex-0.26.1-win.zip
@@ -107,8 +107,8 @@ Get-NBMinerDownload -FileName $NBminerVer
 Get-GMinerDownload -FileName $GMinerVer
 
 cd ..
-
-$hostips = 25,32,99,201,202,203,204,205,206,207,208
+#206,
+$hostips = 25,32,99,201,202,203,204,205,208
 $SandFile=$GMinerVer
 foreach ($hostip in $hostips) {
 
@@ -132,6 +132,10 @@ foreach ($hostip in $hostips) {
    echo  " $hostnoStr -------------------------"
    ssh ${TARGET} "New-Item -Force -Path .\Documents\coin\bin  -ItemType Directory"
    scp -r ".\bin\Start-Miner.bat" ".\bin\setenv-D${hostnoStr}.bat" ${TARGET}:.\Documents\coin\bin\
-
+   if ( $hostip -ne 32 ){
+    ssh ${TARGET} "shutdown /r /t 3"
+   }
+   TIMEOUT 3 
 }
+
 

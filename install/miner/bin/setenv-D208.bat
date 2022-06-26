@@ -8,7 +8,7 @@ goto %miner%
 :: ------------------ nbminer Start--------------------------------
 :nbminer
 cd  %NBMinerPath%
-set ARG0= --log --log-no-job --api 0.0.0.0:3333 --mclock 1250 --fan 75
+set ARG0= --log --log-no-job --api 0.0.0.0:3333 --mclock 1200 --fan 75
 nbminer -a ethash -o stratum+ssl://%URL%  -u %USER%.%WORKER% %ARG0%
 goto End
 :: ------------------ nbminer End --------------------------------
@@ -17,7 +17,7 @@ goto End
 :gminer
 cd %GminerPath%
 
-set ARG1=  --tfan 60 --tfan_min 85 --tfan_max 99  --mclock +1200
+set ARG1=  --tfan 60 --tfan_min 65 --tfan_max 99 --mclock +1200  --lhr_mode 0
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe  --algo ethash --ssl 1 --server %URL% --user %USER%.%WORKER%  %ARG1% %ARG2%
@@ -29,7 +29,7 @@ goto End
 :gminerETC
 cd %GminerPath%
 
-set ARG1=  --templimit 80 --tfan 60 --tfan_min 85 --tfan_max 99  --mclock +1250
+set ARG1=  --templimit 80 --tfan 60 --tfan_min 85 --tfan_max 99  --mclock +1200
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe --algo etchash --ssl 1 --server %URLETC% --user %USERETC%.%WORKER%  %ARG1% %ARG2%
@@ -49,7 +49,7 @@ goto End
 :trexminer
 cd %TrexminerPath%
 
-t-rex.exe -a ethash -o stratum+ssl://%URL% -u %USER% -p x -w %WORKER% --api-bind-http 0.0.0.0:3333 --mclock 1250  --fan t:65[65-100]
+t-rex.exe -a ethash -o stratum+ssl://%URL% -u %USER% -p x -w %WORKER% --api-bind-http 0.0.0.0:3333 --mclock 1200  --fan t:65[65-100]
 
 goto End
 :: ------------------ trexminer End --------------------------------
@@ -57,5 +57,4 @@ goto End
 
 :End
 
-pause
-
+exit

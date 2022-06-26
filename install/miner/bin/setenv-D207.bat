@@ -21,7 +21,7 @@ goto End
 
 cd %GminerPath%
 
-set ARG1=  --tfan 65 --tfan_min 85 --tfan_max 99 --pl 60 --lhr_mode 0 --mclock +990
+set ARG1=  --tfan 65 --tfan_min 85 --tfan_max 99 --lhr_mode 0 --mclock +990
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe --algo ethash --ssl 1 --server %URL% --user %USER%.%WORKER%  %ARG1% %ARG2%
