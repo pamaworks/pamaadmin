@@ -1,5 +1,5 @@
 ::"c:\windows\system32\nvidia-smi.exe" -i 0,1 -lgc 900
-"c:\windows\system32\nvidia-smi.exe" -lgc 900
+"c:\windows\system32\nvidia-smi.exe" -lgc 800
 
 
 
@@ -22,7 +22,7 @@ goto End
 
 cd %GminerPath%
 :: --pl 54   --lock_cclock 800
-set ARG1=  --safe_dag 2 --tfan 65 --tfan_min 65 --tfan_max 99  --lhr_mode 0 --mclock +800
+set ARG1=  --safe_dag 2 --tfan 65 --tfan_min 65 --tfan_max 99  --mclock +700
 set ARG2=  --log_newjob 0  --api 3333
 
 miner.exe --algo ethash --ssl 1 --server %URL% --user %USER%.%WORKER%  %ARG1% %ARG2%
